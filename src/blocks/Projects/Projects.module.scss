@@ -1,0 +1,39 @@
+.projects {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
+.projects__menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+}
+
+.search {
+  width: 25%;
+  height: 60px;
+  border-radius: 15px;
+  border: none;
+  background-color: #353535;
+  color: #fafafa;
+  padding-left: 20px;
+  font-family: 'TTNormsPro', sans-serif;
+  font-size: 18px;
+  transition: outline .1s;
+  &:focus {
+    transition: outline .1s;
+    outline: #fafafa 3px solid;
+  }
+}
+
+.notfound {
+  width: 90%;
+  text-align: center;
+  font-size: 64px;
+  margin-top: 20vh;
+}

@@ -1,0 +1,14 @@
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  width: 250px;
+  height: 60px;
+  font-size: 20px;
+  border-radius: 15px;
+  background: linear-gradient(45deg, #c52ba1, #eb4d8a);
+  @media screen and (max-width: 700px) {
+    font-size: 18px;
+  }
+}

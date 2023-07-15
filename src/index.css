@@ -1,10 +1,23 @@
+@font-face {
+  font-family: 'TTNormsPro';
+  src: local('TTNormsPro'), url(./static/fonts/TTNormsPro-Regular.woff2) format('woff2');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: TTNormsPro;
+  src: local('TTNormsPro'), url(./static/fonts/TTNormsPro-Medium.woff2) format('woff2');
+  font-weight: 500;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'TTNormsPro', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #17171b;
+  color: #fafafa;
+  overflow-x: hidden;
 }
 
 code {

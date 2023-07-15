@@ -1,0 +1,66 @@
+.header {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  padding: 40px 100px;
+  backdrop-filter: blur(50px);
+  @media screen and (max-width: 700px) {
+    flex-wrap: wrap;
+    padding: 40px 20px;
+    gap: 20px;
+    width: 100%;
+  }
+}
+
+.logo {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  text-decoration: none;
+  @media screen and (max-width: 700px) {
+    width: 100%;
+  }
+}
+
+.logo__name {
+  font-weight: 500;
+  font-size: 32px;
+  @media screen and (max-width: 700px) {
+    font-size: 24px;
+  }
+}
+
+.cube {
+  width: 75px;
+  height: 75px;
+  @media screen and (max-width: 700px) {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+.menu {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  @media screen and (max-width: 700px) {
+    width: 100%;
+  }
+}
+
+.menu__link {
+  font-size: 20px;
+  @media screen and (max-width: 700px) {
+    font-size: 18px;
+  }
+}
+
+a {
+  color: inherit;
+}
