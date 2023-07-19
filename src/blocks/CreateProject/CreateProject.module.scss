@@ -1,0 +1,103 @@
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  width: 80%;
+  gap: 100px;
+}
+
+.form__data {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.label {
+  width: 100%;
+  font-size: 32px;
+}
+
+.input {
+  width: 50%;
+  height: 60px;
+  border-radius: 15px;
+  border: none;
+  background-color: #353535;
+  color: #fafafa;
+  padding-left: 20px;
+  font-family: 'TTNormsPro', sans-serif;
+  font-size: 18px;
+  transition: outline .1s;
+  &:focus {
+    transition: outline .1s;
+    outline: #fafafa 3px solid;
+  }
+}
+
+.input_error {
+  outline: #ff4949 3px solid;
+}
+
+.addContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.previewImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  width: 70%;
+  height: 350px;
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+.creators {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 20px;
+}
+
+.nickname {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
+}
+
+.actionIcon {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.gallery {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+.arrow {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.arrow_inactive {
+  filter: brightness(50%);
+}
