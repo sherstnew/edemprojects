@@ -9,9 +9,12 @@ app.use(cors());
 app.use(express.json());
 dotenv.config();
 
-mongoose.connect(process.env.MONGODB_URL)
-.then(() => {
+mongoose.connect(process.env.MONGODB_URL).then(() => {
   console.log('Database connected');
+
+  app.listen(port, () => {
+    console.log(`Server listening on port ${port}!`);
+  });
 });
 
 const projectSchema = new mongoose.Schema({
@@ -27,8 +30,4 @@ app.get('/', (req, res) => {
 app.get('/api/projects', async (req, res) => {
   const projects = await Project.find();
   res.send(projects);
-});
-
-app.listen(port, () => {
-  console.log(`Server listening on port ${port}!`);
 });
