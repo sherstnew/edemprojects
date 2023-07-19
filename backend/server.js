@@ -5,7 +5,9 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const port = 5000;
 
-app.use(cors());
+app.use(cors({
+  origin: ['http://192.168.0.167:3000', 'https://edemprojects.rf.gd', 'https://edemprojects.netlify.app']
+}));
 app.use(express.json());
 dotenv.config();
 
