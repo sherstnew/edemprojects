@@ -12,6 +12,10 @@
   justify-content: space-between;
   align-items: center;
   width: 90%;
+  @media screen and (max-width: 700px) {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
 }
 
 .search {
@@ -24,15 +28,18 @@
   padding-left: 20px;
   font-family: 'TTNormsPro', sans-serif;
   font-size: 18px;
-  transition: outline .1s;
+  transition: outline 0.1s;
+  @media screen and (max-width: 700px) {
+    width: 100%;
+  }
   &:focus {
-    transition: outline .1s;
+    transition: outline 0.1s;
     outline: #fafafa 3px solid;
   }
 }
 
 .notfound {
-  width: 90%;
+  width: 100%;
   text-align: center;
   font-size: 64px;
   margin-top: 20vh;

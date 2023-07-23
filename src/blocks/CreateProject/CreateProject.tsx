@@ -12,6 +12,7 @@ import {
   IProjectResource,
 } from '../../types/IProject';
 import { ModalStatus } from '../../components/ModalStatus/ModalStatus';
+import { Loader } from '../../components/Loader/Loader';
 
 export function CreateProject() {
   const [status, setStatus] = useState<string>('initial');
@@ -77,7 +78,7 @@ export function CreateProject() {
 
   // SUBMIT PROJECT
 
-  const submitProject = (event: any) => {
+  const submitProject = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     const newProject = {
@@ -89,6 +90,8 @@ export function CreateProject() {
       images: images,
     };
 
+    setStatus('loading');
+
     fetch(`${process.env.REACT_APP_API_URL}/api/projects/new`, {
       method: 'POST',
       body: JSON.stringify(newProject),
@@ -96,8 +99,8 @@ export function CreateProject() {
         'Content-Type': 'application/json',
       },
     })
-      .then((response) => response.json())
-      .then((data) => {
+    .then((response) => response.json())
+    .then((data) => {
         if (data.status === 'ok') {
           setStatus('success');
         } else {
@@ -116,8 +119,10 @@ export function CreateProject() {
         <ModalStatus status='success' />
       ) : status === 'error' ? (
         <ModalStatus status='error' />
+      ) : status === 'loading' ? (
+        <Loader />
       ) : (
-        <form className={styles.form}>
+        <form className={styles.form} onSubmit={submitProject}>
           <div className={styles.gallery}>
             <img
               src={arrowLeftIcon}
@@ -196,6 +201,7 @@ export function CreateProject() {
               className={styles.input}
               placeholder='Введите название'
               onChange={(event) => setProjectName(event.target.value)}
+              required
             />
             <label htmlFor='description' className={styles.label}>
               Опишите свой проект
@@ -206,6 +212,7 @@ export function CreateProject() {
               className={styles.input}
               placeholder='Введите описание'
               onChange={(event) => setProjectDescription(event.target.value)}
+              required
             />
             <label htmlFor='images' className={styles.label}>
               Вставьте картинки (ссылкой)
@@ -286,6 +293,7 @@ export function CreateProject() {
               placeholder='Введите X'
               onChange={(event) => setXCoordinate(Number(event.target.value))}
               defaultValue={0}
+              required
             />
             <input
               type='number'
@@ -294,8 +302,9 @@ export function CreateProject() {
               placeholder='Введите Z'
               onChange={(event) => setZCoordinate(Number(event.target.value))}
               defaultValue={0}
+              required
             />
-            <Button callback={submitProject}>Отправить проект</Button>
+            <Button callback={() => {}} submit={true}>Отправить проект</Button>
           </div>
         </form>
       )}

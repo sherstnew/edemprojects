@@ -40,7 +40,6 @@ app.post('/api/projects/new', async (req, res) => {
   if (req.body) {
     const { name, creators, description, resources, coordinates, images } = req.body;
     if (name && creators && description && resources && coordinates && images) {
-      console.log(req.body);
       await Project.create(req.body);
       res.send({status: 'ok'});
     } else {
