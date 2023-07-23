@@ -1,4 +1,4 @@
-export interface IProjectResources {
+export interface IProjectResource {
   name: string,
   count: number,
 };
@@ -13,7 +13,9 @@ export interface IProject {
   name: string,
   creators: string[],
   description: string,
-  resources: IProjectResources[],
+  resources: IProjectResource[],
   coordinates: IProjectCoordinates,
   images: string[],
+  createdAt: Date,
+  updatedAt: Date,
 };

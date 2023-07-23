@@ -3,7 +3,7 @@ import styles from './Button.module.scss';
 
 export interface IButtonProps {
   children: string,
-  callback: () => void
+  callback: (event: any) => void
 }
 
 export function Button (props: IButtonProps) {

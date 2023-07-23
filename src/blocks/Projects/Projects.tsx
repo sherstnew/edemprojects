@@ -18,7 +18,9 @@ export function Projects () {
     .then(response => response.json())
     .then(data => {
       setProjects(data);
-      setFilteredProjects(data);
+      setFilteredProjects(data.sort(function(a: IProject, b: IProject){
+        return new Date(b.createdAt).valueOf() - new Date(a.createdAt).valueOf();
+      }));
     })
     .catch(err => {
       console.log(err);

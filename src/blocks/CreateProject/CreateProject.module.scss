@@ -38,6 +38,10 @@
   }
 }
 
+.input_number {
+  width: 10%;
+}
+
 .input_error {
   outline: #ff4949 3px solid;
 }
@@ -100,4 +104,18 @@
 
 .arrow_inactive {
   filter: brightness(50%);
+}
+
+.resources {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 20px;
+}
+
+.resource {
+  font-size: 18px;
+  width: 100%;
 }

@@ -1,0 +1,28 @@
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 50%;
+  gap: 30px;
+  margin-top: 30vh
+}
+
+.modal__icon {
+  width: 60px;
+  height: 60px;
+}
+
+.modal__message {
+  text-align: center;
+  width: 100%;
+  font-size: 32px;
+}
+
+.modal__menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  font-size: 18px;
+}

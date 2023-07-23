@@ -1,21 +1,21 @@
 .header {
   position: fixed;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  width: 80%;
-  padding: 40px 100px;
+  width: 100%;
+  padding: 35px;
   backdrop-filter: blur(50px);
+  z-index: 2;
+  gap: 35%;
   @media screen and (max-width: 700px) {
     flex-wrap: wrap;
     padding: 40px 20px;
     gap: 20px;
-    width: 100%;
   }
 }
 
 .logo {
-  width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -44,7 +44,6 @@
 }
 
 .menu {
-  width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
