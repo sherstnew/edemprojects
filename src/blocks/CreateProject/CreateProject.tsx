@@ -54,6 +54,7 @@ export function CreateProject() {
     if (!images.includes(image) && image !== '') {
       setImageError(false);
       setImages([...images, image]);
+      setImage('');
     } else {
       setImageError(true);
     }
@@ -228,6 +229,7 @@ export function CreateProject() {
                 }
                 placeholder='Введите ссылку на картинку'
                 onChange={(event) => setImage(event.target.value)}
+                value={image}
               />
               <img
                 src={plusIcon}

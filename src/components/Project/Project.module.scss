@@ -15,10 +15,11 @@
 }
 
 .project__image {
-  width: 90%;
-  max-height: 500px;
+  width: auto;
+  max-width: 100%;
+  height: 500px;
   border-radius: 15px;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .project__name {
@@ -67,4 +68,38 @@
   width: 90%;
   font-size: 18px;
   font-weight: 500;
+}
+
+.gallery {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  @media screen and (max-width: 700px) {
+    padding: 0;
+  }
+}
+
+.arrow {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  @media screen and (max-width: 700px) {
+    display: none;
+  }
+}
+
+.left {
+  position: absolute;
+  left: 20%;
+}
+.right {
+  position: absolute;
+  right: 20%;
+}
+
+
+.arrow_inactive {
+  filter: brightness(50%);
 }
