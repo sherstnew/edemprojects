@@ -12,7 +12,6 @@ export interface IProjectProps {
 
 export function Project(props: IProjectProps) {
   const { project } = props;
-  console.log(styles);
 
   const [currentImage, setCurrentImage] = useState(0);
 
