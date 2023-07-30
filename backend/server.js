@@ -5,13 +5,14 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const port = 5000;
 
-app.use(
-  cors({
-    //   origin: ['http://localhost:3000', 'https://edemprojects.rf.gd', 'https://edemprojects.netlify.app',
-    // 'https://projects.edemmine.ru']
-    origin: '*',
-  })
-);
+// app.use(
+//   cors({
+//     //   origin: ['http://localhost:3000', 'https://edemprojects.rf.gd', 'https://edemprojects.netlify.app',
+//     // 'https://projects.edemmine.ru']
+//     origin: '*',
+//   })
+// );
+app.use(cors());
 app.use(express.json());
 dotenv.config();
 
