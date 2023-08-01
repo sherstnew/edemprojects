@@ -53,7 +53,7 @@ export function Project(props: IProjectProps) {
       <div className={styles.project__name}>{project.name}</div>
       <div className={styles.project__creators}>
         {project.creators.map((nickname, index) => (
-          <Creator key={index} nickname={nickname} blank={false} />
+          <Creator key={index} player={{nickname: nickname}} blank={false} />
         ))}
       </div>
       <div className={styles.project__description}>{project.description}</div>

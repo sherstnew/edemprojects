@@ -1,0 +1,45 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 80%;
+  gap: 200px;
+}
+
+.player {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+}
+
+.player__image {
+  width: 15%;
+}
+
+.player__info {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  text-align: right;
+}
+
+.nickname {
+  width: 100%;
+  font-size: 64px;
+  font-weight: 500;
+}
+
+.registry {
+  width: 100%;
+  font-size: 24px;
+  &_green {
+    color: #17b65e;
+  }
+  &_red {
+    color: #ff3030;
+  }
+}

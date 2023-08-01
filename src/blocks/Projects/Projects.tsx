@@ -21,15 +21,20 @@ export function Projects() {
     fetch(`${process.env.REACT_APP_API_URL}/api/projects`)
       .then((response) => response.json())
       .then((data) => {
-        setStatus('success');
-        setProjects(data);
-        setFilteredProjects(
-          data.sort(function (a: IProject, b: IProject) {
-            return (
-              new Date(b.createdAt).valueOf() - new Date(a.createdAt).valueOf()
-            );
-          })
-        );
+        if (data.status === 'ok' && data.data) {
+          setStatus('success');
+          setProjects(data.data);
+          setFilteredProjects(
+            data.data.sort(function (a: IProject, b: IProject) {
+              return (
+                new Date(b.createdAt).valueOf() -
+                new Date(a.createdAt).valueOf()
+              );
+            })
+          );
+        } else {
+          setStatus('error');
+        }
       })
       .catch((err) => {
         setStatus('error');

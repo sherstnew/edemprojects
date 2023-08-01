@@ -16,7 +16,7 @@ app.use(cors());
 app.use(express.json());
 dotenv.config();
 
-mongoose.connect(process.env.MONGODB_URL).then(() => {
+mongoose.connect(`${process.env.MONGODB_URL}`).then(() => {
   console.log('Database connected');
 
   app.listen(port, () => {
@@ -38,7 +38,12 @@ const projectSchema = new mongoose.Schema(
   }
 );
 
+const registrySchema = new mongoose.Schema({
+  nickname: String,
+});
+
 const Project = mongoose.model('project', projectSchema);
+const Player = mongoose.model('player', registrySchema);
 
 app.get('/', (req, res) => {
   res.send('EdemProjects API');
@@ -50,7 +55,20 @@ app.post('/api/projects/new', async (req, res) => {
       req.body;
     if (name && creators && description && resources && coordinates && images) {
       await Project.create(req.body);
-      res.send({ status: 'ok' });
+      try {
+        for (let i = 0; i < creators.length; i++) {
+          const player = await Player.findOne({nickname: creators[i]});
+          if (!player) {
+            await Player.create({nickname: creators[i], isInRegistry: false});
+          } else {
+            continue;
+          };
+        };
+        res.send({ status: 'ok' });
+      } catch (error) {
+        console.log(error);
+        res.send({ status: 'error' });
+      }
     } else {
       res.send({ status: 'error' });
     }
@@ -61,20 +79,20 @@ app.post('/api/projects/new', async (req, res) => {
 
 app.get('/api/projects', async (req, res) => {
   const projects = await Project.find();
-  res.send(projects);
+  res.send({status: 'ok', data: projects});
 });
 
 app.get('/api/players', async (req, res) => {
-  const projects = await Project.find();
-  const players = [];
-
-  projects.forEach((project) => {
-    project.creators.forEach((creator) => {
-      if (!players.includes(creator)) {
-        players.push(creator);
-      }
-    });
-  });
-
-  res.send(players);
+  if (req.query.nickname) {
+    try {
+      const player = await Player.findOne({nickname: req.query.nickname});
+      res.send({status: 'ok', data: player});
+    } catch (error) {
+      console.log(error);
+      res.send({ status: 'error' });
+    }
+  } else {
+    const players = await Player.find();
+    res.send({status: 'ok', data: players})
+  };
 });
