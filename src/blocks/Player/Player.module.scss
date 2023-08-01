@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  width: 80%;
+  width: 100%;
   gap: 200px;
 }
 
@@ -13,10 +13,18 @@
   justify-content: space-between;
   align-items: flex-start;
   flex-wrap: nowrap;
+  @media screen and (max-width: 700px) {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
 }
 
 .player__image {
   width: 15%;
+  @media screen and (max-width: 700px) {
+    width: 60%;
+  }
 }
 
 .player__info {
@@ -25,17 +33,28 @@
   align-items: flex-start;
   flex-wrap: wrap;
   text-align: right;
+  @media screen and (max-width: 700px) {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
 }
 
 .nickname {
   width: 100%;
   font-size: 64px;
   font-weight: 500;
+  @media screen and (max-width: 700px) {
+    font-size: 48px;
+  }
 }
 
 .registry {
   width: 100%;
   font-size: 24px;
+  @media screen and (max-width: 700px) {
+    font-size: 18px;
+  }
   &_green {
     color: #17b65e;
   }
