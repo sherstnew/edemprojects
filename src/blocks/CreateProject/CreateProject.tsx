@@ -190,7 +190,7 @@ export function CreateProject() {
             </div>
             <div className={styles.creators}>
               {nicknames.map((nickname, index) => (
-                <Creator key={index} nickname={nickname} blank={true} />
+                <Creator key={index} player={{nickname: nickname}} blank={true} />
               ))}
             </div>
             <label htmlFor='projectname' className={styles.label}>
